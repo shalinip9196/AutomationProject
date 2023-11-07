@@ -23,9 +23,9 @@ public class LoginPage {
 		ac.moveToElement(driver.findElement(By.id("nav-link-accountList-nav-line-1"))).click().build().perform();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_email")));
-		driver.findElement(By.id("ap_email")).sendKeys("v.vignesh.0811@gmail.com");
+		driver.findElement(By.id("ap_email")).sendKeys("dark");
 		driver.findElement(By.id("continue")).click();
-		driver.findElement(By.id("ap_password")).sendKeys("Fresh@@1996");
+		driver.findElement(By.id("ap_password")).sendKeys("password#");
 
 		driver.findElement(By.name("rememberMe")).click();
 		driver.findElement(By.id("signInSubmit")).click();
