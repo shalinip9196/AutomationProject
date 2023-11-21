@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -30,21 +30,27 @@ public class Actionspage {
 		ac.moveToElement(driver.findElement(By.id("nav-link-accountList-nav-line-1"))).click().build().perform();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_email")));
-		driver.findElement(By.id("ap_email")).sendKeys("dark");
+		driver.findElement(By.id("ap_email")).sendKeys("v.vignesh.0811@gmail.com");
 		driver.findElement(By.id("continue")).click();
-		driver.findElement(By.id("ap_password")).sendKeys("password#");
+		driver.findElement(By.id("ap_password")).sendKeys("Fresh@@1996");
 
 		driver.findElement(By.name("rememberMe")).click();
 		driver.findElement(By.id("signInSubmit")).click();
 
 		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Tshirt");
 		driver.findElement(By.id("nav-search-submit-button")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("s-result-sort-select_2")));
+		WebElement drop=driver.findElement(By.cssSelector("s-result-sort-select_2"));
+		//ac.moveToElement(drop).click().build().perform();
+		drop.click();
+		Select dd=new Select(drop);
+		dd.selectByVisibleText("Price: High to low");
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"a-autoid-0-announce\"]")));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"a-autoid-0-announce\"]")));
 
-		ac.moveToElement(driver.findElement(By.xpath("//*[@id=\"a-autoid-0-announce\"]"))).click().build().perform();
+		//ac.moveToElement(driver.findElement(By.xpath("//*[@id=\"a-autoid-0-announce\"]"))).click().build().perform();
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("s-result-sort-select_2")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("s-asin")));
 		WebElement choose = driver.findElement(By.id("s-result-sort-select_2"));
 		choose.click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("a-price-whole")));
